@@ -140,7 +140,8 @@ void loop() {
   digitalWrite(rPin, HIGH); 
   delay(500); 
   // print the value over UART 
-  char str[] = {'E','r','r','o','r', '-', 'W', 'a', 't', 'e', 'r', ‘ ‘, ‘t’, ’o’, o’, ‘ ’, 'L', 'o', 'w', '\n'};  for (int i = 0; str[i] != '\0'; i++) { 
+  char str[] = {'E','r','r','o','r', '-', 'W', 'a', 't', 'e', 'r', ' ', 't', 'o', 'o', ' ', 'L', 'o', 'w', '\n'};  
+  for (int i = 0; str[i] != '\0'; i++) { 
   U0putchar(str[i]); 
   } 
   } 
