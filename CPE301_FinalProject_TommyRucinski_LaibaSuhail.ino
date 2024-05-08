@@ -55,7 +55,7 @@ void setup() {
  } 
 
 void loop() { 
-  
+
   if(digitalRead(buttonPin)==HIGH){  buttonPressed = true; 
   delay(2000); 
   } 
@@ -127,7 +127,7 @@ void loop() {
   Serial.println(" "); 
     
   //adc lvl 
-  Serial.println(adc_value);*/ 
+  Serial.println(adc_value);
   // print the value over UART 
   char str[8]; 
   sprintf(str, "%d\r\n", adc_value); 
