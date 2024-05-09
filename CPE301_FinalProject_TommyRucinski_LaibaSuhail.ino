@@ -79,6 +79,7 @@ void loop() {
   unsigned int adc_value = adc_read(0); if (digitalRead(motorPin) == HIGH) { 
   motor_move(); 
   } 
+ //This function is a demonstration of active green light and the delay of button press being read while the initiation of the motor
   // if (buttonState != HIGH){ 
   lcd.setCursor(12,1); 
   lcd.print("%"); 
@@ -138,6 +139,7 @@ void loop() {
   for (int i = 0; str[i] != '\0'; i++) { 
   U0putchar(str[i]); 
   } 
+ //Utilized for printing data to the serial while displaying errors in the sensors
   if(adc_value < 100){ 
   digitalWrite(gPin, LOW); 
   digitalWrite(bPin, LOW); 
@@ -179,6 +181,7 @@ void loop() {
   lcd.print(" "); 
   delay(50); 
 } 
+//Monitors temperature and water level while keeping the LED and LCD updated.
 void adc_init() 
 { 
  // setup the A register 
@@ -208,7 +211,7 @@ unsigned int adc_read(unsigned char adc_channel_num) {
   // return the result in the ADC data register 
   return *my_ADC_DATA; 
 } 
-
+//For the output value, we use analog to digital conversion.
 void U0init(int U0baud) { 
 
   unsigned long FCPU = 16000000;
@@ -233,6 +236,7 @@ void U0putchar(unsigned char U0pdata) {
 while((*myUCSR0A & TBE)==0);  *myUDR0 = U0pdata; 
 
 } 
+//For printing and returning values, setting as wel as calculating interrupts for the occurence of multiple events
 // stepper move function
 void motor_move() {
 
@@ -240,3 +244,4 @@ void motor_move() {
  Serial.print("motor stepped");  delay(500); 
 
 }
+// To move the motor of the fan a stepper motor is utilized
