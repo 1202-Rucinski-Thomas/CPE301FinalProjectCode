@@ -18,6 +18,8 @@
  bool buttonPressed; 
  int lastButtonState; 
  int currentButtonState; 
+//In the above portion of the code (lines 5-20), we initialized some elements, as well as created some variables and pin number assignments.
+
  LiquidCrystal lcd(3,4,5,6,12,13); 
  DHT dht(DHTPIN, DHTTYPE); 
  const int stepsperRevolution = 32; 
@@ -27,6 +29,7 @@
 volatile unsigned char *myUCSR0A = (unsigned char *)0x00C0; volatile unsigned char *myUCSR0B = (unsigned char *)0x00C1;
 volatile unsigned char *myUCSR0C = (unsigned char *)0x00C2; volatile unsigned int *myUBRR0 = (unsigned int *) 0x00C4; volatile unsigned char *myUDR0 = (unsigned char *)0x00C6; 
 volatile unsigned char* my_ADMUX = (unsigned char*) 0x7C; volatile unsigned char* my_ADCSRB = (unsigned char*) 0x7B; volatile unsigned char* my_ADCSRA = (unsigned char*) 0x7A; volatile unsigned int* my_ADC_DATA = (unsigned int*) 0x78; 
+//In lines 23-31, we defined the unsigned variables, and set up more of our initializations. This includes the liquid crystal library and DHT library.
 
 void setup() { 
 
@@ -53,7 +56,7 @@ void setup() {
   delay(1500);
 
  } 
-
+//In the above setup code, the function is to hold the action of the output and input pins and to print the humidity and temperature on our LCD display.
 void loop() { 
 
   if(digitalRead(buttonPin)==HIGH){  buttonPressed = true; 
@@ -102,7 +105,8 @@ void loop() {
   float f = DHT.Humidity; 
   float c = DHT.Temperature; 
   //After implementing this code into our circuit, we have an error on the display, which we emailed Prof. Anima about. Unfortunately, due to time constraints with other classes, we were unable to fix this issue, as shown in the video.
-    
+  //This initial part of the loop function (lines 60-106) initializes our motor, along with sets up the green led to be active. The delay of the button press is also contained here in this code.
+ 
   if (isnan(f) && (c)) { 
   lcd.clear(); 
   lcd.setCursor(4,1); 
